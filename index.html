@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little Surprise ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffe0ec, #ffc2d8, #fff0f5);
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            animation: appear 2s ease-in-out;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #e6005c;
+            font-size: clamp(35px, 8vw, 65px);
+            margin-bottom: 20px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        p {
+            color: #a60042;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            color: #ff4d88;
+            font-size: 25px;
+            animation: float 6s linear infinite;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>I LOVE YOU 🥰</h1>
+        <p>Just a little reminder that<br>
+        you are special to me. ❤️</p>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration =
+                (Math.random() * 3 + 4) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 400);
+    </script>
+
+</body>
+</html>
